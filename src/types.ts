@@ -23,4 +23,21 @@ export type IconsType =
   | "npm"
   | "bun"
   | "vscode"
-  | "wordpress";
+  | "wordpress"
+  | undefined;
+
+export type skillsBadgeType = {
+  children: React.ReactNode;
+  icon?: IconsType;
+  size: "sm" | "base";
+};
+
+export type ProjectType = {
+  image: string;
+  name: string;
+  description: string;
+  status: "completed" | "in-progress" | "on-hold";
+  technologies: string[];
+  liveLink: string;
+  repoLink?: string;
+};
