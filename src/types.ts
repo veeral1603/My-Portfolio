@@ -29,7 +29,7 @@ export type IconsType =
 export type skillsBadgeType = {
   children: React.ReactNode;
   icon?: IconsType;
-  size: "sm" | "base";
+  size?: "sm" | "base";
 };
 
 export type ProjectType = {

@@ -9,8 +9,8 @@ export default function SkillsBadge({
 }: skillsBadgeType) {
   return (
     <div
-      className={`px-3 py-1 border hover:-translate-y-0.5  border-zinc-900 hover:bg-white/5 rounded-lg transition duration-300 cursor-pointer flex items-center justify-center gap-2 text-sm ${
-        size === "sm" ? "font-normal" : "font-medium"
+      className={`px-3 py-1 border hover:-translate-y-0.5  border-zinc-900 hover:bg-white/5 rounded-lg transition duration-300 cursor-pointer flex items-center justify-center gap-2  ${
+        size === "sm" ? "font-normal text-xs" : "font-medium text-sm"
       } `}
     >
       {size === "base" && (
