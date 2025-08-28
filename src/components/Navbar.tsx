@@ -18,18 +18,18 @@ const navLinks: navLinkType[] = [
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-5 -translate-x-1/2 left-1/2  z-50 border border-zinc-900 rounded-md w-[95%] max-w-[728px]">
+    <nav className="fixed top-5  -translate-x-1/2 left-1/2  z-50 border border-zinc-900 rounded-md w-[95%] max-w-[728px] backdrop-blur-sm bg-background/60">
       <div className=" px-5 py-2 flex items-center justify-between">
         <div className="rounded-full size-8 overflow-hidden bg-stone-200 aspect-square flex items-center justify-center text-stone-800 font-medium text-lg">
           <p>V</p>
         </div>
 
         <div className="hidden md:block">
-          <ul className="flex items-center text-sm">
+          <ul className="flex items-center text-sm text-secondaryText">
             {navLinks.map((link) => (
               <li
                 key={link.id}
-                className="px-4 py-1 cursor-pointer text-gray-400 hover:text-foreground transition duration-300"
+                className="px-4 py-1 cursor-pointer hover:text-foreground transition duration-300"
                 onClick={() => scrollToSection(link.id)}
               >
                 {link.label}

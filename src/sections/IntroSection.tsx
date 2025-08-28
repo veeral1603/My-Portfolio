@@ -6,7 +6,7 @@ import React from "react";
 export default function IntroSection() {
   return (
     <>
-      <section id="intro" className="w-full">
+      <section id="intro" className="w-full pt-40">
         <div className="container w-full">
           <div className="space-y-6 md:space-y-8">
             <SectionHeadingPill>
@@ -21,20 +21,18 @@ export default function IntroSection() {
               </h1>
             </div>
 
-            <div className="text-zinc-400 text-xl md:text-2xl leading-6 md:leading-8">
+            <div className="text-secondaryText text-xl md:text-2xl leading-6 md:leading-8">
               <h2>
                 A{" "}
                 <span className="text-white font-medium">
                   Full-Stack Developer
                 </span>{" "}
-                from{" "}
-                <span className="text-white font-medium">Delhi, India</span>,
-                passionate about building modern, scalable, and impactful
-                digital experiences.
+                from Delhi, India, passionate about building modern, scalable,
+                and impactful digital experiences.
               </h2>
             </div>
 
-            <div className="text-zinc-400 text-sm md:text-base ">
+            <div className="text-secondaryText text-sm md:text-base ">
               <p>
                 I specialize in creating web apps using{" "}
                 <span className="text-white font-medium">
