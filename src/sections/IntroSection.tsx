@@ -6,7 +6,7 @@ import React from "react";
 export default function IntroSection() {
   return (
     <>
-      <section id="intro" className="w-full pt-40">
+      <section id="intro" className="w-full pt-30 md:pt-40">
         <div className="container w-full">
           <div className="space-y-6 md:space-y-8">
             <SectionHeadingPill>

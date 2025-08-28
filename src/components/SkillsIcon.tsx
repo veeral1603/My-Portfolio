@@ -633,10 +633,10 @@ export default function SkillsIcon({ icon }: { icon: IconsType }) {
             height="113.408"
             x="-8.41115"
             y="22.5944"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               result="hardAlpha"
@@ -662,10 +662,10 @@ export default function SkillsIcon({ icon }: { icon: IconsType }) {
             height="144.007"
             x="79.6667"
             y="-8.0035"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
             <feColorMatrix
               in="SourceAlpha"
               result="hardAlpha"
