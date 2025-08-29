@@ -14,7 +14,7 @@ export default function SkillsBadge({
       } `}
     >
       {size === "base" && (
-        <div className="p-1.5 rounded-md bg-white/10 size-7">
+        <div className="p-1.5 rounded-md bg-white/10 size-6">
           <SkillsIcon icon={icon} />
         </div>
       )}

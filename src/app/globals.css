@@ -38,5 +38,5 @@ body {
 }
 
 .main-container {
-  @apply md:min-w-3xl max-w-3xl mx-auto px-5;
+  @apply md:min-w-2xl max-w-2xl mx-auto px-5;
 }

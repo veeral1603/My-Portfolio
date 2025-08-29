@@ -41,3 +41,11 @@ export type ProjectType = {
   liveLink: string;
   repoLink?: string;
 };
+
+export type ExperienceType = {
+  title: string;
+  company?: string;
+  duration: string;
+  description: string;
+  technologies: string[];
+};
