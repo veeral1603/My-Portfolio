@@ -25,6 +25,21 @@
   }
 }
 
+.shine-button {
+  padding-inline: 12px;
+  padding-block: 8px;
+  background-image: linear-gradient(
+    -60deg,
+    transparent,
+    transparent,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent,
+    transparent,
+    transparent
+  );
+}
+
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

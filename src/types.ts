@@ -34,9 +34,9 @@ export type skillsBadgeType = {
 
 export type ProjectType = {
   image: string;
-  name: string;
+  title: string;
   description: string;
-  status: "completed" | "in-progress" | "on-hold";
+  status: "Completed" | "In Progress" | "On Hold";
   technologies: string[];
   liveLink: string;
   repoLink?: string;

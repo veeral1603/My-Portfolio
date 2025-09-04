@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import FadeIn from "@/components/FadeIn";
 
 const geist = Geist({
   variable: "--font-geist",
@@ -24,7 +25,9 @@ export default function RootLayout({
       <body className={`${geist.variable} antialiased `}>
         <Navbar />
         <div className="flex flex-col min-h-screen ">
-          <main className="main-container  flex-1 ">{children}</main>
+          <FadeIn>
+            <main className="main-container  flex-1 ">{children}</main>
+          </FadeIn>
         </div>
       </body>
     </html>

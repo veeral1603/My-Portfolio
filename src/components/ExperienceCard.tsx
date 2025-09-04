@@ -14,7 +14,7 @@ export default function ExperienceCard({
 
   return (
     <div
-      className="p-4 border border-zinc-900 rounded-md cursor-pointer group"
+      className="p-4 border border-zinc-900 rounded-md cursor-pointer group hover:border-zinc-800 transition duration-300"
       onClick={() => setExpanded((cur) => !cur)}
     >
       <div className="flex items-center justify-between gap-4  ">

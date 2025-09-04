@@ -2,6 +2,7 @@ import SectionDivider from "@/components/SectionDivider";
 import SectionHeadingPill from "@/components/SectionHeadingPill";
 import { Handshake } from "lucide-react";
 import React from "react";
+import Image from "next/image";
 
 export default function IntroSection() {
   return (
@@ -13,6 +14,10 @@ export default function IntroSection() {
               <Handshake size={18} className="text-purple-400" />
               <p>Introduction</p>
             </SectionHeadingPill>
+
+            <div className="flex items-center overflow-hidden object-cover rounded-full aspect-square size-40 shadow-[0_0_0_2px_rgba(255,255,255,0.3)]">
+              <Image src="/avatar.jpg" alt="Avatar" width={160} height={160} />
+            </div>
 
             <div className="text-5xl font-bold tracking-tight">
               <h1>
