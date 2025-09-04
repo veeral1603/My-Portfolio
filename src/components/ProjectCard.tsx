@@ -1,12 +1,25 @@
+"use client";
 import { ProjectType } from "@/types";
 import React from "react";
 import SkillsBadge from "./SkillsBadge";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-export default function ProjectCard({ project }: { project: ProjectType }) {
+export default function ProjectCard({
+  project,
+  idx,
+}: {
+  project: ProjectType;
+  idx: number;
+}) {
   const isCompleted: boolean = project.status === "Completed";
   return (
-    <div className="p-1 rounded-md border border-zinc-900 flex gap-3 flex-col md:flex-row cursor-pointer hover:border-zinc-800 transition duration-300">
+    <motion.div
+      className="p-1 rounded-md border border-zinc-900 flex gap-3 flex-col md:flex-row cursor-pointer hover:border-zinc-800 transition duration-300"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, delay: 0.15 * idx }}
+    >
       <div className="w-full h-[280px] md:h-[200px] md:w-60 overflow-hidden">
         <img
           src={project.image}
@@ -73,6 +86,6 @@ export default function ProjectCard({ project }: { project: ProjectType }) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
