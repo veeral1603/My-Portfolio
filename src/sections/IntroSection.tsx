@@ -15,7 +15,7 @@ export default function IntroSection() {
               <p>Introduction</p>
             </SectionHeadingPill>
 
-            <div className="flex items-center overflow-hidden object-cover rounded-full aspect-square size-40 shadow-[0_0_0_2px_rgba(255,255,255,0.3)]">
+            <div className="flex items-center overflow-hidden object-cover rounded-full aspect-square size-30 md:size-40 shadow-[0_0_0_2px_rgba(255,255,255,0.3)]">
               <Image src="/avatar.jpg" alt="Avatar" width={160} height={160} />
             </div>
 
