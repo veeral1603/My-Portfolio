@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import FadeIn from "@/components/FadeIn";
+import { FloatingDockWrapper } from "@/components/FloatingDockWrapper";
 
 const geist = Geist({
   variable: "--font-geist",
@@ -21,14 +22,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geist.variable} antialiased `}>
+    <html lang="en" className="dark">
+      <body className={`${geist.variable} antialiased relative `}>
         <Navbar />
         <div className="flex flex-col min-h-screen ">
           <FadeIn>
             <main className="main-container  flex-1 ">{children}</main>
           </FadeIn>
         </div>
+        <FloatingDockWrapper />
       </body>
     </html>
   );

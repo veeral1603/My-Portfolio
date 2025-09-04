@@ -18,7 +18,7 @@ export default function ProjectCard({
       className="p-1 rounded-md border border-zinc-900 flex gap-3 flex-col md:flex-row cursor-pointer hover:border-zinc-800 transition duration-300"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.3, delay: 0.15 * idx }}
+      transition={{ duration: 0.3, delay: 0.15 * idx - 0.15 }}
     >
       <div className="w-full h-[280px] md:h-[200px] md:w-60 overflow-hidden">
         <img

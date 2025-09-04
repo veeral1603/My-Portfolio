@@ -81,7 +81,7 @@ export default function ProjectsSection() {
           </SectionHeadingPill>
 
           <SectionHeading subText="Projects that reflect my skills, problem-solving mindset, and passion for building impactful digital experiences.">
-            Things I&apos;ve Built
+            My Creations
           </SectionHeading>
 
           <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-1 gap-3">
