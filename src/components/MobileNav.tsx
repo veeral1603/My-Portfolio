@@ -17,7 +17,7 @@ export default function MobileNav({
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="p-2 border-zinc-900 rounded-md  border bg-background absolute z-100 mt-3 right-0 w-68 "
+            className="p-2 border-zinc-900 rounded-md  border bg-background absolute z-100 mt-3 right-0 w-68 md:hidden "
             initial={{ opacity: 0, scale: 0.95, x: 20 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             exit={{ opacity: 0, scale: 0.95, x: 20 }}

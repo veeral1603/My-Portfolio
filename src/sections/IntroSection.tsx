@@ -43,7 +43,7 @@ export default function IntroSection() {
                 <span className="text-white font-medium">
                   Next.js, React, Tailwind CSS, Express.js, Node.js, and MongoDB
                 </span>
-                .I&apos;m Always eager to learn, grow, and take on new
+                . I&apos;m Always eager to learn, grow, and take on new
                 challenges.
               </p>
               <p>
