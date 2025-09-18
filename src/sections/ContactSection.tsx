@@ -34,14 +34,14 @@ export default function ContactSection() {
                 <IconBrandX className="w-5 h-5" />
               </Link>
               <Link
-                href="https"
+                href="https://github.com/veeral1603"
                 target="_blank"
                 className="p-2 flex items-center bg-stone-100/5 rounded-full hover:bg-stone-100/10 transition duration-300"
               >
                 <IconBrandGithub className="w-5 h-5" />
               </Link>
               <Link
-                href="http://x.com/veeerzzz"
+                href="https://www.linkedin.com/in/veeral-narang/"
                 target="_blank"
                 className="p-2 flex items-center bg-stone-100/5 rounded-full hover:bg-stone-100/10 transition duration-300"
               >
