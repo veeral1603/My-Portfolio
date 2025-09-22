@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* @custom-variant dark (&:is(.dark *)); */
 
 @theme inline {
   --color-background: var(--background);
@@ -169,4 +169,31 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.react-activity-calendar__scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  outline: none;
+}
+
+.react-activity-calendar__scroll-container::-webkit-scrollbar {
+  height: 3px;
+}
+
+.react-activity-calendar__scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.react-activity-calendar__scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(200, 200, 200, 0.25);
+}
+
+.react-activity-calendar__scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 200, 200, 0.27);
+}
+
+.react-activity-calendar__scroll-container {
+  scrollbar-width: thin; /* slim scrollbar */
+  scrollbar-color: rgba(200, 200, 200, 0.25) transparent;
 }

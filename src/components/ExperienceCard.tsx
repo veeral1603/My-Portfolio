@@ -18,7 +18,7 @@ export default function ExperienceCard({
       onClick={() => setExpanded((cur) => !cur)}
     >
       <div className="flex items-center justify-between gap-4  ">
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 text-nowrap">
           <h4 className="text-lg font-semibold">{experience.title}</h4>
           <ChevronRight
             size={18}
@@ -29,8 +29,8 @@ export default function ExperienceCard({
           />
         </div>
 
-        <div className="px-3 py-1 rounded-full bg-white/5 text-xs font-medium flex items-center gap-2">
-          <Calendar size={14} />
+        <div className="px-3 py-1 rounded-full bg-white/5 text-[10px] md:text-xs font-medium flex items-center gap-2 text-nowrap">
+          <Calendar className="size-3 md:size-3.5" />
           <p>{experience.duration}</p>
         </div>
       </div>

@@ -3,6 +3,7 @@ import SectionHeadingPill from "@/components/SectionHeadingPill";
 import { Handshake } from "lucide-react";
 import React from "react";
 import Image from "next/image";
+import GithubHeatmap from "@/components/GithubHeatmap";
 
 export default function IntroSection() {
   return (
@@ -51,8 +52,12 @@ export default function IntroSection() {
                 <span className="text-white font-medium">
                   let&apos;s connect
                 </span>{" "}
-                and create something impactful together. 🚀
+                and create something impactful together.
               </p>
+            </div>
+
+            <div className="w-full flex items-center justify-center calendar-container ">
+              <GithubHeatmap />
             </div>
           </div>
         </div>
