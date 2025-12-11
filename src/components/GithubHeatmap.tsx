@@ -6,12 +6,9 @@ export default function GithubHeatmap() {
     <GitHubCalendar
       username="veeral1603"
       blockSize={14}
-      blockRadius={1}
+      blockRadius={3}
       blockMargin={4}
       fontSize={12}
-      theme={{
-        dark: ["#2b2b2b", "#f5f5f5"],
-      }}
     />
   );
 }
