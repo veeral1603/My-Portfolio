@@ -2,6 +2,7 @@
 import React from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
+  IconBrandDiscord,
   IconBrandGithub,
   IconBrandGmail,
   IconBrandLinkedin,
@@ -32,6 +33,13 @@ export function FloatingDockWrapper() {
         <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
       href: "https://www.linkedin.com/in/veeral-narang/",
+    },
+    {
+      title: "Discord",
+      icon: (
+        <IconBrandDiscord className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "https://discord.com/users/720931125052047431",
     },
     {
       title: "Email",

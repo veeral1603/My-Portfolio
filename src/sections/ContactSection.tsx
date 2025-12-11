@@ -7,6 +7,7 @@ import {
   IconBrandLinkedin,
   IconBrandX,
   IconMail,
+  IconBrandDiscord,
 } from "@tabler/icons-react";
 import Link from "next/link";
 
@@ -46,6 +47,13 @@ export default function ContactSection() {
                 className="p-2 flex items-center bg-stone-100/5 rounded-full hover:bg-stone-100/10 transition duration-300"
               >
                 <IconBrandLinkedin className="w-5 h-5" />
+              </Link>
+              <Link
+                href="https://discord.com/users/720931125052047431"
+                target="_blank"
+                className="p-2 flex items-center bg-stone-100/5 rounded-full hover:bg-stone-100/10 transition duration-300"
+              >
+                <IconBrandDiscord className="w-5 h-5" />
               </Link>
             </div>
 
