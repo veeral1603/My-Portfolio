@@ -33,12 +33,12 @@ export default function IntroSection() {
                 <span className="text-white font-medium">
                   Full-Stack Developer
                 </span>{" "}
-                from Delhi, India, passionate about building modern, scalable,
-                and impactful digital experiences.
+                from New-Delhi, India, passionate about building modern,
+                scalable, and impactful digital experiences.
               </h2>
             </div>
 
-            <div className="text-secondaryText text-sm md:text-base ">
+            {/* <div className="text-secondaryText text-sm md:text-base ">
               <p>
                 I specialize in creating web apps using{" "}
                 <span className="text-white font-medium">
@@ -54,7 +54,7 @@ export default function IntroSection() {
                 </span>{" "}
                 and create something impactful together.
               </p>
-            </div>
+            </div> */}
 
             <div className="w-full flex items-center justify-center calendar-container ">
               <GithubHeatmap />
