@@ -1,9 +1,10 @@
 "use client";
 import { formatTime } from "@/lib/utils";
 import { SpotifySong } from "@/types";
-import { IconBrandSpotify, IconBrandSpotifyFilled } from "@tabler/icons-react";
+import { IconBrandSpotifyFilled } from "@tabler/icons-react";
 import Image from "next/image";
-import React from "react";
+import React, { useCallback } from "react";
+import FadeIn from "./FadeIn";
 
 const DISCORD_ID = "720931125052047431";
 
@@ -13,8 +14,11 @@ export default function SpotifyCard() {
 
   const wsRef = React.useRef<WebSocket | null>(null);
   const heartbeatRef = React.useRef<NodeJS.Timeout | null>(null);
+  const reconnectTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+  const isManuallyClosed = React.useRef(false);
 
-  React.useEffect(() => {
+  const connect = useCallback(() => {
+    isManuallyClosed.current = false;
     const ws = new WebSocket("wss://api.lanyard.rest/socket");
     wsRef.current = ws;
 
@@ -47,13 +51,28 @@ export default function SpotifyCard() {
       }
     };
 
-    ws.onerror = console.error;
+    ws.onclose = () => {
+      if (isManuallyClosed.current) return;
+      reconnectTimeoutRef.current = setTimeout(connect, 3000);
+    };
 
-    return () => {
+    ws.onerror = () => {
       ws.close();
-      if (heartbeatRef.current) clearInterval(heartbeatRef.current);
     };
   }, []);
+
+  React.useEffect(() => {
+    connect();
+    return () => {
+      isManuallyClosed.current = true;
+
+      if (wsRef.current?.readyState === WebSocket.OPEN) {
+        wsRef.current.close();
+      }
+
+      if (heartbeatRef.current) clearInterval(heartbeatRef.current);
+    };
+  }, [connect]);
 
   React.useEffect(() => {
     if (!spotify?.timestamps) return;
@@ -74,45 +93,49 @@ export default function SpotifyCard() {
 
   return (
     spotify && (
-      <div className="w-full sm:w-120">
-        <div className="text-xs  mb-1 flex items-center gap-2">
-          <p>Listening To Spotify </p>
-          <IconBrandSpotifyFilled size={18} />
-        </div>
-        <div className="p-2 border border-zinc-900  text-xs rounded-[10px] flex items-center gap-4 mt-2 hover:border-zinc-800 transition duration-300">
-          <div className="overflow-hidden rounded-[6px]  size-25   aspect-square relative">
-            <Image
-              src={spotify?.album_art_url}
-              fill
-              alt="Album Art"
-              className="object-cover"
-            />
+      <FadeIn>
+        <div className="w-full sm:w-120">
+          <div className="text-xs  mb-1 flex items-center gap-2">
+            <p>Listening To Spotify </p>
+            <IconBrandSpotifyFilled size={18} />
           </div>
-
-          <div className="flex flex-col flex-1 ">
-            <p className="text-sm">{spotify?.song}</p>
-            <p className="text-secondaryText">
-              {spotify?.artist
-                .split(";")
-                .map((a) => a.trim())
-                .join(", ")}{" "}
-            </p>
-
-            <div className="h-1 bg-neutral-700 rounded overflow-hidden mt-2 mb-1">
-              <div
-                className="h-full bg-white transition-all"
-                style={{ width: `${progress}%` }}
+          <div className="p-2 border border-zinc-900  text-xs rounded-[10px] flex items-center gap-4 mt-2 hover:border-zinc-800 transition duration-300">
+            <div className="overflow-hidden rounded-[6px]  size-25   aspect-square relative">
+              <Image
+                src={spotify?.album_art_url}
+                fill
+                alt="Album Art"
+                className="object-cover"
               />
             </div>
-            <div className="flex justify-between text-xs text-neutral-400">
-              <span>{formatTime(Date.now() - spotify.timestamps.start)}</span>
-              <span>
-                {formatTime(spotify.timestamps.end - spotify.timestamps.start)}
-              </span>
+
+            <div className="flex flex-col flex-1 ">
+              <p className="text-sm">{spotify?.song}</p>
+              <p className="text-secondaryText">
+                {spotify?.artist
+                  .split(";")
+                  .map((a) => a.trim())
+                  .join(", ")}{" "}
+              </p>
+
+              <div className="h-1 bg-neutral-700 rounded overflow-hidden mt-2 mb-1">
+                <div
+                  className="h-full bg-white transition-all"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+              <div className="flex justify-between text-xs text-neutral-400">
+                <span>{formatTime(Date.now() - spotify.timestamps.start)}</span>
+                <span>
+                  {formatTime(
+                    spotify.timestamps.end - spotify.timestamps.start
+                  )}
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </FadeIn>
     )
   );
 }
