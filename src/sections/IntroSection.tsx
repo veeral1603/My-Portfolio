@@ -4,6 +4,7 @@ import { Handshake } from "lucide-react";
 import React from "react";
 import Image from "next/image";
 import GithubHeatmap from "@/components/GithubHeatmap";
+import SpotifyCard from "@/components/SpotifyCard";
 
 export default function IntroSection() {
   return (
@@ -56,9 +57,9 @@ export default function IntroSection() {
               </p>
             </div> */}
 
-            <div className="w-full flex items-center justify-center calendar-container ">
-              <GithubHeatmap />
-            </div>
+            <GithubHeatmap />
+
+            <SpotifyCard />
           </div>
         </div>
       </section>

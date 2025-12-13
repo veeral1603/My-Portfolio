@@ -49,3 +49,15 @@ export type ExperienceType = {
   description: string;
   technologies: string[];
 };
+
+export interface SpotifySong {
+  album: string;
+  album_art_url: string;
+  artist: string;
+  song: string;
+  track_id: string;
+  timestamps: {
+    start: number;
+    end: number;
+  };
+}
