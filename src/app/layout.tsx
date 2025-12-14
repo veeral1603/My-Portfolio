@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
+import {Analytics} from "@vercel/analytics/next";  
 import Navbar from "@/components/Navbar";
 import FadeIn from "@/components/FadeIn";
 import { FloatingDockWrapper } from "@/components/FloatingDockWrapper";
@@ -53,6 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <Analytics />
       <body className={`${geist.variable} antialiased relative `}>
         <Navbar />
         <div className="flex flex-col min-h-screen ">
