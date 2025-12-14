@@ -4,7 +4,7 @@ import { Handshake } from "lucide-react";
 import React from "react";
 import Image from "next/image";
 import GithubHeatmap from "@/components/GithubHeatmap";
-import SpotifyCard from "@/components/SpotifyCard";
+import Activity from "@/components/Activity";
 
 export default function IntroSection() {
   return (
@@ -59,7 +59,7 @@ export default function IntroSection() {
 
             <GithubHeatmap />
 
-            <SpotifyCard />
+            <Activity />
           </div>
         </div>
       </section>

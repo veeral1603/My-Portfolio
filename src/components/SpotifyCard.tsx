@@ -1,79 +1,17 @@
 "use client";
 import { formatTime } from "@/lib/utils";
-import { SpotifySong } from "@/types";
 import { IconBrandSpotifyFilled } from "@tabler/icons-react";
 import Image from "next/image";
-import React, { useCallback } from "react";
+import React from "react";
 import FadeIn from "./FadeIn";
+import { SpotifySong } from "@/types";
 
-const DISCORD_ID = "720931125052047431";
-
-export default function SpotifyCard() {
-  const [spotify, setSpotify] = React.useState<SpotifySong | null>(null);
+export default function SpotifyCard({
+  spotify,
+}: {
+  spotify: SpotifySong | null;
+}) {
   const [progress, setProgress] = React.useState(0);
-
-  const wsRef = React.useRef<WebSocket | null>(null);
-  const heartbeatRef = React.useRef<NodeJS.Timeout | null>(null);
-  const reconnectTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
-  const isManuallyClosed = React.useRef(false);
-
-  const connect = useCallback(() => {
-    isManuallyClosed.current = false;
-    const ws = new WebSocket("wss://api.lanyard.rest/socket");
-    wsRef.current = ws;
-
-    ws.onopen = () => {
-      ws.send(
-        JSON.stringify({
-          op: 2,
-          d: {
-            subscribe_to_ids: [DISCORD_ID],
-          },
-        })
-      );
-    };
-
-    ws.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-
-      if (data.t === "INIT_STATE") {
-        setSpotify(data.d[DISCORD_ID].spotify);
-      } else if (data.t === "PRESENCE_UPDATE") {
-        setSpotify(data.d.spotify);
-      }
-
-      if (data.op === 1 && data.d?.heartbeat_interval) {
-        if (heartbeatRef.current) return;
-
-        heartbeatRef.current = setInterval(() => {
-          ws.send(JSON.stringify({ op: 3 }));
-        }, data.d.heartbeat_interval);
-      }
-    };
-
-    ws.onclose = () => {
-      if (isManuallyClosed.current) return;
-      reconnectTimeoutRef.current = setTimeout(connect, 3000);
-    };
-
-    ws.onerror = () => {
-      ws.close();
-    };
-  }, []);
-
-  React.useEffect(() => {
-    connect();
-    return () => {
-      isManuallyClosed.current = true;
-
-      if (wsRef.current?.readyState === WebSocket.OPEN) {
-        wsRef.current.close();
-      }
-
-      if (heartbeatRef.current) clearInterval(heartbeatRef.current);
-    };
-  }, [connect]);
-
   React.useEffect(() => {
     if (!spotify?.timestamps) return;
 
@@ -90,7 +28,6 @@ export default function SpotifyCard() {
 
     return () => clearInterval(interval);
   }, [spotify]);
-
   return (
     spotify && (
       <FadeIn>
