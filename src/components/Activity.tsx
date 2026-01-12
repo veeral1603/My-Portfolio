@@ -2,14 +2,18 @@
 import React from "react";
 import SpotifyCard from "./SpotifyCard";
 import StatusCard from "./StatusCard";
-import { SpotifySong } from "@/types";
+import { SpotifySong, VsCodeActivity } from "@/types";
+import VsCodeCard from "./VsCodeCard";
 
 const DISCORD_ID = "720931125052047431";
+const VSCODE_APPLICATION_ID = "383226320970055681";
+
 export default function Activity() {
   const [spotify, setSpotify] = React.useState<SpotifySong | null>(null);
   const [isDiscordActive, setIsDiscordActive] = React.useState<boolean | null>(
     null
   );
+  const [vsCode, setVsCode] = React.useState<VsCodeActivity | null>(null);
 
   const wsRef = React.useRef<WebSocket | null>(null);
   const heartbeatRef = React.useRef<NodeJS.Timeout | null>(null);
@@ -37,6 +41,21 @@ export default function Activity() {
 
       if (data.t === "INIT_STATE") {
         setSpotify(data.d[DISCORD_ID].spotify);
+        const vsCodeActivity = data.d[DISCORD_ID].activities.find(
+          (activity: unknown & { application_id?: string }) =>
+            activity?.application_id === VSCODE_APPLICATION_ID
+        );
+
+        const vsCodeActivityObj: VsCodeActivity = {
+          application_id: VSCODE_APPLICATION_ID,
+          name: vsCodeActivity?.name || "",
+          details: vsCodeActivity?.details || "",
+          state: vsCodeActivity?.state || "",
+          assets: vsCodeActivity?.assets || {},
+          timestamps: vsCodeActivity?.timestamps || { start: 0 },
+        };
+
+        setVsCode(vsCodeActivity ? vsCodeActivityObj : null);
         setIsDiscordActive(
           data.d[DISCORD_ID].active_on_discord_mobile ||
             data.d[DISCORD_ID].active_on_discord_desktop ||
@@ -45,6 +64,21 @@ export default function Activity() {
         );
       } else if (data.t === "PRESENCE_UPDATE") {
         setSpotify(data.d.spotify);
+        const vsCodeActivity = data.d.activities.find(
+          (activity: unknown & { application_id?: string }) =>
+            activity?.application_id === VSCODE_APPLICATION_ID
+        );
+
+        const vsCodeActivityObj: VsCodeActivity = {
+          application_id: VSCODE_APPLICATION_ID,
+          name: vsCodeActivity?.name || "",
+          details: vsCodeActivity?.details || "",
+          state: vsCodeActivity?.state || "",
+          assets: vsCodeActivity?.assets || {},
+          timestamps: vsCodeActivity?.timestamps || { start: 0 },
+        };
+
+        setVsCode(vsCodeActivity ? vsCodeActivityObj : null);
         setIsDiscordActive(
           data.d.active_on_discord_mobile ||
             data.d.active_on_discord_desktop ||
@@ -88,6 +122,7 @@ export default function Activity() {
   return (
     <div className="flex flex-col gap-6 md:gap-8">
       <StatusCard isDiscordActive={isDiscordActive} />
+      <VsCodeCard vsCode={vsCode} />
       <SpotifyCard spotify={spotify} />
     </div>
   );

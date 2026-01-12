@@ -5,6 +5,7 @@ import React from "react";
 import Image from "next/image";
 import GithubHeatmap from "@/components/GithubHeatmap";
 import Activity from "@/components/Activity";
+import Link from "next/link";
 
 export default function IntroSection() {
   return (
@@ -58,6 +59,15 @@ export default function IntroSection() {
             </div> */}
 
             <GithubHeatmap />
+
+            {/* <div>
+              <Link
+                className="bg-purple-700  transition duration-300 text-center text-sm shadow-[inset_-1px_1px_rgba(255,255,255,0.4),inset_1px_-1px_rgba(0,0,0,0.4)] rounded-full px-4 py-2  "
+                href="#"
+              >
+                View Resume
+              </Link>
+            </div> */}
 
             <Activity />
           </div>

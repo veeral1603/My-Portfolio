@@ -61,3 +61,19 @@ export interface SpotifySong {
     end: number;
   };
 }
+
+export interface VsCodeActivity {
+  application_id: string;
+  name: string;
+  assets: {
+    large_image: string;
+    large_text: string;
+    small_image?: string;
+    small_text?: string;
+  };
+  details: string;
+  state: string;
+  timestamps: {
+    start: number;
+  };
+}
