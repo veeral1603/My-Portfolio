@@ -12,7 +12,7 @@ export default function SkillsBadge({
       className={`border hover:-translate-y-0.5  border-zinc-900 hover:bg-white/5 rounded-lg transition duration-300 cursor-pointer flex items-center justify-center gap-2  ${
         size === "sm"
           ? "font-normal text-[11px] px-2 py-1"
-          : "font-medium text-sm px-3 py-1 "
+          : "font-medium text-sm px-1.5 py-1 "
       } `}
     >
       {size === "base" && (

@@ -5,7 +5,6 @@ import React from "react";
 import Image from "next/image";
 import GithubHeatmap from "@/components/GithubHeatmap";
 import Activity from "@/components/Activity";
-import Link from "next/link";
 
 export default function IntroSection() {
   return (
